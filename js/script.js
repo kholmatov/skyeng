@@ -1,40 +1,46 @@
 /**
  * Created by kholmatov on 06/08/2019.
  */
-$(function () {
+$(document).ready(function () {
 
-    $('.error').click(function() {
-        alert( "Handler for .focus() called." );
+    $('.error').click(function () {
+        alert("Handler for .focus() called.");
         $(this).removeClass('error');
     });
 
     $('.button').click(function () {
         if (validation()) {
+            $('.button').attr("disabled", true);
+            $('.button').val('Отправляем');
             var name = $("#name").val();
             var email = $("#email").val();
             var data = 'name=' + name + '&email=' + email;
-            $.ajax({
+            var request = $.ajax({
                 type: "POST",
                 dataType: "json",
                 url: "send.php",
                 data: data,
                 success: function (data) {
-                    if(data == 3) {
+                    if (data == 3) {
                         $('#form').hide();
-                        $('.result').show(500);
+                        $('#form').after('<div class="result"><div>Поздравляем </div> <div>с подпиской на курс.</div> <div>Успехов в учебе! :)</div></div>');
                         $("#name").val("");
                         $("#email").val("");
                     }
-
                 }
             });
-        }
+            request.fail(function (jqXHR, textStatus) {
+                console.log("Request failed: " + textStatus);
+            });
 
-        //Кажется, вы ввели несуществующий email
-    })
+        }
+    });
 
     $(".request").focus(function () {
-        $(this).removeClass('error');
+        if ($(this).hasClass("error")) {
+            $(this).removeClass('error');
+            $(this).next('div').remove();
+        }
     });
 
 });
@@ -44,15 +50,22 @@ function validation() {
     var filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
     $('#form .request').each(function (e) {
         if ($(this).val().trim() == '') {
+            checkError(this);
             check = false;
-            $(this).addClass('error');
         }
     });
 
     if (!filter.test($('#form #email').val())) {
-        $('#form #email').addClass('error');
+        checkError('#form #email');
         check = false;
     }
 
     return check;
+}
+
+function checkError(current) {
+    if (!$(current).hasClass("error")) {
+        $(current).addClass('error');
+        if (current == '#form #email') $(current).after('<div class="error-msg">' + $(current).data("error") + '</div>');
+    }
 }

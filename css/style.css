@@ -2,11 +2,13 @@ html, body {
     padding: 0px;
     margin: 0px;
 }
-input{
+
+input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #000000;
     opacity: 1; /* Firefox */
@@ -19,6 +21,7 @@ input{
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #000000;
 }
+
 @font-face {
     font-family: 'Museo Sans Cyrl 300';
     src: url('MuseoSansCyrl-300.woff2') format('woff2'),
@@ -26,6 +29,7 @@ input{
     font-weight: 300;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Museo Sans Cyrl 500';
     src: url('MuseoSansCyrl-500.woff2') format('woff2'),
@@ -90,128 +94,151 @@ input{
 }
 
 .form li {
-    float:left;
+    float: left;
 }
 
 .feild {
     font-family: 'Museo Sans Cyrl 300';
     font-size: 14px;
     line-height: 32px;
-    padding:0 0 0 16px;
+    padding: 0 0 0 16px;
     width: 181px;
     height: 40px;
     color: #000000;
     background: #FFFFFF;
     border: 2px solid #5700FF;
     box-sizing: border-box;
-    margin-right:5px;
+    margin-right: 5px;
 }
 
-.button{
+.button {
     font-family: 'Museo Sans Cyrl 700';
     font-size: 14px;
     line-height: 20px;
     text-align: center;
     color: #5700FF;
-    cursor:pointer;
+    cursor: pointer;
     height: 40px;
-    width:156px;
+    width: 156px;
     background: #F1F1FF;
     border: 2px solid #5700FF;
     box-sizing: border-box;
     box-shadow: 8px 8px 0px #FFDC62;
 
 }
-.button:hover{
-    background:url("../img/btn.png") 0px 6px no-repeat;
+
+.button:hover {
+    background: url("../img/btn.png") 0px 6px no-repeat;
 }
-.agreement{
+
+.agreement {
     font-family: 'Museo Sans Cyrl 300';
     font-size: 10px;
     line-height: 12px;
-    height:24px;
-    width:156px;
+    height: 24px;
+    width: 156px;
     color: #000000;
-    text-align:center;
-    margin:14px 0 0 0;
+    text-align: center;
+    margin: 14px 0 0 0;
 }
 
-.agreement a{
-    color:#814df0;
-    text-decoration:none;
+.agreement a {
+    color: #814df0;
+    text-decoration: none;
 }
 
-.result{
-    display:none;
+.result {
     font-family: 'Museo Sans Cyrl 300';
     font-size: 24px;
     line-height: 32px;
-    font-weight:bold;
+    font-weight: bold;
     margin: 26px 81px 0 62px;
 }
-.result_mob{
-    display:none;
+
+.result div {
+    display: inline;
 }
-.error{
+
+.error {
     border: 2px solid #FF0000;
     box-sizing: border-box;
 }
-@media only screen and (max-width :655px) {
+
+.error-msg {
+    font-family: 'Museo Sans Cyrl 300';
+    font-size: 12px;
+    line-height: 12px;
+    color: #ff0000;
+    width: 181px;
+    margin: 5px 0 0 0;
+    text-align: center;
+}
+
+@media only screen and (max-width: 655px) {
     #wfirts {
         width: 335px;
         height: 440px;
-        margin-left:20px;
-        /*background:url("../img/mob_2.gif");*/
+        margin-left: 20px;
     }
+
     .title {
         font-size: 27px;
         line-height: 32px;
-        margin:23px 0 0 24px;
+        margin: 23px 0 0 24px;
     }
-    .text{
+
+    .text {
         font-size: 18px;
         line-height: 24px;
         padding: 7px 20px 0 24px;
     }
 
     .form {
-        display:block;
+        display: block;
         margin: 29px 25px 0 24px;
         min-height: 50px;
     }
 
     .form li {
-        float:none;
+        float: none;
     }
+
     .feild {
-        width:286px;
-        margin-bottom:8px;
-    }
-    .button{
-        float:left;
-        width:156px;
-        margin-top:21px;
-    }
-    .agreement{
-        float:left;
-        width:106px;
-        text-align:left;
-        margin:32px 0 0 24px;
+        width: 286px;
+        margin-bottom: 8px;
     }
 
-    .result{
-        display:none !important;
+    .button {
+        float: left;
+        width: 156px;
+        margin-top: 21px;
     }
 
-    .result_mob{
-        display:none;
-        font-family: 'Museo Sans Cyrl 500';
-        font-size: 24px;
-        line-height: 32px;
-        font-weight:bold;
+    .agreement {
+        float: left;
+        width: 106px;
+        text-align: left;
+        margin: 32px 0 0 24px;
+    }
+
+    .result {
         text-align: center;
         margin: 62px 0 0 0;
-        width:335px;
+        width: 335px;
         letter-spacing: 0px;
     }
+
+    .result div {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .error-msg {
+        position: absolute;
+        width: 286px;
+        margin: -2px 0 0px 0;
+        text-align: center;
+    }
+
 }

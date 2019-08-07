@@ -6,6 +6,7 @@
  */
 date_default_timezone_set('Europe/Moscow');
 require __DIR__ . '/vendor/autoload.php';
+
 try {
     $client = getClient();
     $service = new Google_Service_Sheets($client);
@@ -16,7 +17,7 @@ try {
     $result = $service->spreadsheets_values->append($spreadsheetId, 'A1:C1', $body, $options);
     printf("%d", $result->getUpdates()->getUpdatedCells());
 } catch (Exception $ex) {
-    echo $ex->getMessage();
+    printf("%s", $ex->getMessage());
 }
 //if (php_sapi_name() != 'cli') {
 //   throw new Exception('This application must be run on the command line.');

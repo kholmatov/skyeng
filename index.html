@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Skyeng</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
 </head>
 <body>
 <div class="center">
@@ -21,10 +20,12 @@
             <div class="form">
                 <ul>
                     <li>
-                        <input type="text" id="name" class="feild request" name="name" placeholder="Ваше имя">
+                        <input type="text" id="name" class="feild request" name="name" data-error="Введите ваше имя"
+                               placeholder="Ваше имя">
                     </li>
                     <li>
-                        <input type="text" id="email" class="feild request" name="email" placeholder="Email">
+                        <input type="text" id="email" class="feild request" name="email"
+                               data-error="Кажется, вы ввели несуществующий email" placeholder="Email">
                     </li>
                     <li>
                         <input type="submit" class="button" value="Подписаться">
@@ -36,13 +37,6 @@
                 </ul>
             </div>
         </form>
-            <div class="result">
-                Поздравляем  с подпиской на курс. Успехов в учебе! :)
-            </div>
-            <div class="result_mob">
-                Поздравляем  <br>с подпиской на курс. Успехов в учебе! :)
-            </div>
-
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
