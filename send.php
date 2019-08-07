@@ -1,5 +1,5 @@
 <?php
-/**
+/*/**
  * @link http://www.i-taj.com/
  * @copyright Copyright (c) 2019 I-taj.com
  * @license http://www.i-taj.com/license/
